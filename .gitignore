@@ -50,3 +50,9 @@ agent_history.gif
 
 .agent/**
 .claude/**
+
+# Copilot customization folder (local only, not for the repo)
+.github/
+
+# Local override files
+*.local
