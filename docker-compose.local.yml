@@ -1,0 +1,9 @@
+services:
+  agent-zero-local:
+    image: agent-zero-local
+    container_name: agent-zero-local
+    ports:
+      - "50001:80"
+    volumes:
+      - ./usr:/a0/usr
+    restart: unless-stopped
