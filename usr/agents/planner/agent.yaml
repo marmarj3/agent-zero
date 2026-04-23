@@ -1,0 +1,9 @@
+name: planner
+title: Implementation Planner
+description: >-
+  Transforms software requirements into complete, unambiguous, executable
+  implementation plans. Follows a strict no-assumption policy: asks all
+  clarifying questions before producing any plan. Outputs a structured
+  plan file with components, dependencies, acceptance criteria, and
+  execution order ready for the Developer Agent.
+enabled: true

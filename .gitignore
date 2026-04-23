@@ -30,15 +30,20 @@ tmp/**
 !tmp/**/
 
 # hack to keep .gitkeep but ignore nested repos
-# Ignore everything under usr
-usr/**
-# Ignore nested repos
+# Ignore nested git repos in usr
 /usr/**/.git
-# Allow git to traverse directories
-!usr/**/
-# Re-ignore everything again
-usr/**/*
-# But allow .gitkeep files
+# Ignore specific usr subdirectories (runtime/user data)
+usr/.litellm_copilot/**
+usr/api/**
+usr/chats/**
+usr/downloads/**
+usr/knowledge/**
+usr/memory/**
+usr/plugins/**
+usr/projects/**
+usr/scheduler/**
+usr/workdir/**
+# But keep .gitkeep files
 !usr/**/.gitkeep
 
 
@@ -53,6 +58,9 @@ agent_history.gif
 
 # Copilot customization folder (local only, not for the repo)
 .github/
+
+# Copilot processing log (local only)
+Copilot-Processing.md
 
 # Local override files
 *.local
