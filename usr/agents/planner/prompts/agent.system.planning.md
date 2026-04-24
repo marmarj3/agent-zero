@@ -148,6 +148,9 @@ executable by the Developer Agent without interpretation.]
 
 Save to: `workdir/plans/[purpose]-[component]-1-spec.md`
 
+**⚠️ FORMAT: This file MUST be saved as Markdown (.md). Never use JSON, YAML, or any other format.**
+**The file extension must be `-spec.md`. Any other extension is wrong.**
+
 This document is for the DEVELOPER AGENT to implement from.
 It answers: **exactly how will each component be built?**
 It is automatically approved when the user approves the plan.

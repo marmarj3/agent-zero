@@ -7,7 +7,7 @@
 | File | Produced by | Always? | Purpose |
 |------|-------------|---------|--------|
 | `workdir/plans/[name].md` | Planner | ✅ | User-reviewable plan |
-| `workdir/plans/[name]-spec.md` | Planner | ✅ | Developer implementation contract |
+| `workdir/plans/[name]-spec.md` | Planner | ✅ | Developer implementation contract — **Markdown (.md) format** |
 | `workdir/plans/[name]-review.md` | Reviewer | ✅ | Design decisions + defect log |
 | `workdir/plans/[name]-negotiation.md` | Reviewer | If discussion occurred | Full round-by-round log |
 | `workdir/plans/[name]-delivery-report.md` | Developer | ✅ after execution | Requirements matrix + deviation log |

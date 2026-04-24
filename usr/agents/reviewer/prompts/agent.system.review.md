@@ -39,8 +39,8 @@ For every decision you intend to question:
 5. Form a substantiated position with sources BEFORE contacting the Planner
 
 **Research queries to run per decision type**:
-- Integration: `"[chosen approach] vs [alternative] tradeoffs production 2024"`
-- Library: `"[library name] alternatives comparison 2024"`, `"[library] CVE"`, `"[library] maintenance status"`
+- Integration: `"[chosen approach] vs [alternative] tradeoffs production"`
+- Library: `"[library name] alternatives comparison "`, `"[library] CVE"`, `"[library] maintenance status"`
 - Security: `"OWASP [relevant topic] best practices"`, `"[auth method] security risks"`
 - Architecture: `"[pattern] when to use tradeoffs"`
 

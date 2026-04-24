@@ -160,3 +160,43 @@ echo '=== Developer ===' && ls /a0/usr/agents/developer/prompts/
 echo '=== Docs ===' && ls /a0/usr/workdir/docs/
 echo '=== Plans ===' && ls /a0/usr/workdir/plans/ 2>/dev/null || echo '(empty — no plans yet)'
 ```
+
+---
+
+## Problem 9: Reviewer never called — Agent 0 responds to user after planner
+
+**Symptoms**: Only A0 and A1 appear in the console. No reviewer files produced.
+
+**Cause**: Agent 0 interprets planner delivery as task completion and responds to user.
+
+**Fix applied** (all three of these must be present):
+```bash
+# Verify hard gates in orchestration prompt
+grep 'PHASE 1 COMPLETE\|DO NOT SKIP\|NEVER respond' /a0/usr/prompts/agent.system.devworkflow.md
+
+# Verify planner delivery uses PHASE 1 COMPLETE trigger
+grep 'PHASE 1 COMPLETE' /a0/usr/agents/planner/prompts/agent.system.communication.md
+
+# Verify reviewer delivery uses PHASE 2 COMPLETE trigger
+grep 'PHASE 2 COMPLETE' /a0/usr/agents/reviewer/prompts/agent.system.communication.md
+```
+
+If any missing — re-apply fixes from this session. Also wipe project FAISS (see Problem 1).
+
+---
+
+## Problem 10: Planner skips or minimizes clarification questions
+
+**Symptoms**: Planner produces plan after 0-2 questions, leaving gaps the developer must guess.
+
+**Cause**: LLM decides requirement is complete enough, skips mandatory clarification.
+
+**Fix applied**: Planner communication prompt now has:
+- 13-category mandatory probe list
+- Explicit warning: missing details cause developer failure
+- Self-check gate: must answer NO to "Does developer need to guess anything?" before proceeding
+
+**Verify**:
+```bash
+grep 'MANDATORY probes\|Does the developer need' /a0/usr/agents/planner/prompts/agent.system.communication.md
+```

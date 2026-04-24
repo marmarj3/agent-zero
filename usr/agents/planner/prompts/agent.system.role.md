@@ -35,7 +35,7 @@ rewrite it until it does not.
 ## Research Standard
 
 Before committing to any technology or integration decision in the plan:
-1. Search for current best practices: `"[technology] best practices 2024 2025"`
+1. Search for current best practices: `"[technology] best practices"`
 2. Search for alternatives: `"[chosen approach] vs [alternative] tradeoffs"`
 3. Check dependency health: `"[library] CVE"`, `"[library] maintenance status"`
 4. Check OWASP for security-related decisions

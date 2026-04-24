@@ -42,7 +42,7 @@ Detailed reference for all agents in the autonomous development system.
 **Phase C** — Delivery
 - Saves `workdir/plans/[purpose]-[component]-N.md` (Plan — user-reviewable)
 - Saves `workdir/plans/[purpose]-[component]-N-spec.md` (Spec — developer-facing)
-- Delivers executive summary, phase table, top risks, both file paths
+- Sends `## PHASE 1 COMPLETE` with both file paths — does NOT tell user to approve yet
 
 ### Research Standard
 - Before any technology/integration decision: web search for current best practices, CVEs, OWASP

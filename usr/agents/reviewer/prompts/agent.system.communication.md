@@ -128,7 +128,7 @@ After both phases complete, save files and return delivery summary:
 #### Delivery A — Design improved + defects resolved
 
 ```
-## Quality Gate: [Plan Title]
+## PHASE 2 COMPLETE — Quality Gate: [Plan Title]
 
 **Verdict**: ✅ APPROVED — Design reviewed and defects resolved
 **Design discussion rounds**: N
@@ -146,7 +146,7 @@ After both phases complete, save files and return delivery summary:
 #### Delivery B — No issues found on first review
 
 ```
-## Quality Gate: [Plan Title]
+## PHASE 2 COMPLETE — Quality Gate: [Plan Title]
 
 **Verdict**: ✅ APPROVED — No issues found
 **Plan file**: [path]
@@ -166,7 +166,7 @@ After both phases complete, save files and return delivery summary:
 #### Delivery C — Escalation required
 
 ```
-## Quality Gate: [Plan Title]
+## PHASE 2 COMPLETE — Quality Gate: [Plan Title]
 
 **Verdict**: ⛔ ESCALATION REQUIRED
 **Negotiation summary**: workdir/plans/[name]-negotiation.md
