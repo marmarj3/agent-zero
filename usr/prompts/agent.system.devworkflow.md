@@ -137,7 +137,7 @@ Ask explicitly: **"Please review the plan file and confirm: do you approve this 
 
 ```
 call_subordinate(
-    profile="developer",
+    profile="autonomous-developer",
     reset=true,
     message="""
     IMPLEMENTATION REQUEST
