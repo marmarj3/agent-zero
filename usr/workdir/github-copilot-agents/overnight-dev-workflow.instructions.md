@@ -15,7 +15,7 @@ three-agent overnight development system works.
 |-------|--------|------|
 | `@overnight-planner` | User-facing parent agent | Clarifies, plans, calls reviewer sub-agent, delivers approved plan |
 | `@overnight-reviewer` | Sub-agent (called by planner only) | Researches decisions, checks defects, returns structured verdict |
-| `@implementation-executor` | User-facing parent agent | Implements autonomously from approved plan + spec |
+| `@autonomous-developer` | User-facing parent agent | Implements autonomously from approved plan + spec |
 
 ---
 
@@ -53,7 +53,7 @@ The spec file (`/plan/[name]-spec.md`) is auto-approved with the plan.
 
 ### Step 3 — Implement (run before you sleep)
 ```
-@implementation-executor /plan/[name].md /plan/[name]-spec.md
+@autonomous-developer /plan/[name].md /plan/[name]-spec.md
 ```
 
 The executor will:

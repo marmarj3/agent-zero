@@ -317,5 +317,5 @@ Before delivering, verify:
 **Top risks**: [top 2-3, one line each]
 
 Please review /plan/[purpose]-[component]-1.md and confirm approval.
-When approved, run: @implementation-executor /plan/[purpose]-[component]-1.md /plan/[purpose]-[component]-1-spec.md
+When approved, run: @autonomous-developer /plan/[purpose]-[component]-1.md /plan/[purpose]-[component]-1-spec.md
 ```
