@@ -39,6 +39,12 @@ Detailed reference for all agents in the autonomous development system.
 - Probes: versions, auth, error handling, deployment, tests, integrations, security, config, OWASP
 - P1/P2 unresolved → ask again; P3 unanswered → ASSUMPTION-XXX
 
+**Phase 3b** — Technology Research (before writing any document)
+- Web search every significant decision: `"[technology] best practices 2025"`, `"[library] CVE 2024 2025"`, OWASP guidance
+- Confirmed choices → ASSUMPTION-XXX with source URL
+- Rejected alternatives → ALT-XXX with rejection reason and source
+- **Never commit to a technology choice without current research**
+
 **Phase C** — Delivery
 - Saves `workdir/plans/[purpose]-[component]-N.md` (Plan — user-reviewable)
 - Saves `workdir/plans/[purpose]-[component]-N-spec.md` (Spec — developer-facing)

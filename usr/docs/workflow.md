@@ -60,7 +60,7 @@ Phase 5  →  You         review delivery report in the morning
    - Existing code patterns/conventions to follow
    - CI/CD pipeline expectations
 5. Self-check before proceeding: *"Does the developer need to make ANY guess?"* — if YES, ask more questions
-6. Researches technology choices using web search before committing to decisions
+6. **Phase 3b: Researches technology decisions** using web search before writing either document: best practices, CVEs, OWASP, alternatives, official docs. Every choice must have a source. Rejected alternatives documented as ALT-XXX.
 7. Writes Plan file (user-reviewable): requirements, phases, tasks, acceptance criteria, risks
 8. Writes Spec file (developer-facing): file manifest, function signatures, schemas, env vars, tests, dependencies
 9. Self-validates both against template checklist

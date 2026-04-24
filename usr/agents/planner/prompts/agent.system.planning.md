@@ -47,6 +47,24 @@ Formalize all requirements before writing either document:
 
 Every TASK in the plan must trace back to at least one REQ-XXX.
 
+### Phase 3b: Research Technology Decisions
+
+Before writing either document, use web search to verify every significant decision:
+
+1. **Current best practices**: `"[technology] best practices 2025"`
+2. **Alternatives comparison**: `"[chosen approach] vs [alternative] tradeoffs 2025"`
+3. **Dependency health**: `"[library] CVE 2024 2025"`, `"[library] maintenance status"`
+4. **OWASP guidance**: for every security-related decision
+5. **Official documentation**: verify the chosen approach is current and recommended
+
+Document findings:
+- Confirmed choices → rationale in ASSUMPTION-XXX with source
+- Rejected alternatives → ALT-XXX with rejection reason and source
+- Security findings → SEC-XXX requirement
+
+**Never commit to a technology choice without current research.**
+The Reviewer will challenge every decision with evidence — prepare to defend with sources.
+
 ### Phase 4: Produce Document 1 — The Plan
 
 Save to: `workdir/plans/[purpose]-[component]-1.md`
