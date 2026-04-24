@@ -123,22 +123,46 @@ BLOCKER/MAJOR → `REVISION REQUEST — Round N` to Planner (max 5 rounds)
 
 ---
 
-## Developer Agent
+## Developer Agent (autonomous-developer)
 
-**Profile**: `developer` | **Location**: `usr/agents/developer/`
+**Profile**: `autonomous-developer` | **Location**: `usr/agents/autonomous-developer/`
+
+### Quality Standards
+- Production-quality code: readable, secure, tested, maintainable, functional
+- OWASP Top 10 compliance — never hardcode secrets, validate all inputs
+- Real tests with real assertions — no stubs, no `pass`, no skipped assertions
+
+### Python Environment — Always Use `uv`
+```bash
+uv venv .venv && uv pip install -r requirements.txt
+uv run pytest        # run tests
+uv run python main.py  # run app
+```
+Never use bare `pip` or `python` for Python projects.
 
 ### Autonomy Hierarchy
 
 Before any escalation, exhaust all steps:
 
-1. **SOLVE** — fix with engineering knowledge, retry
-2. **ADAPT** — equivalent approach satisfying same REQ-XXX
+1. **SOLVE** — fix with engineering knowledge + web search if error unclear
+2. **ADAPT** — web search for alternatives, equivalent approach satisfying same REQ-XXX
 3. **WORKAROUND** — maximum partial solution, mark ⚠️ PARTIAL
 4. **SKIP** — document downstream impact, mark ❌, continue
 5. **ESCALATE** — only after all 4 steps fail, with full documentation
 
-### Report Types
+### Task Execution Loop (per task)
+1. ANNOUNCE → 2. IMPLEMENT → 3. TEST (write + run unit tests) → 4. VERIFY (acceptance criterion) → 5. EVALUATE
 
+### Verification Levels
+1. Unit tests — per component (TEST-XXX)
+2. Integration tests — components working together
+3. **Functional verification** — end-to-end: start the app, hit an endpoint, run with real inputs
+
+### Internet Research During Execution
+Mandatory when: error is unclear, dependency fails, API behaves unexpectedly, evaluating adaptation.
+**Search before guessing.** Document findings in Deviation Log if they changed approach.
+
+### Report Types
 1. Plan Validation Report — before any execution
 2. Task Completion Report — per task ✅
 3. Deviation Report — when any problem occurs (even if self-resolved)

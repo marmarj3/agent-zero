@@ -136,7 +136,7 @@ Reviewer sends `## PHASE 2 COMPLETE` with verdict to Agent 0.
 
 ## Phase 4 — Autonomous Overnight Execution
 
-**Agent**: Developer (`call_subordinate(profile="developer", reset=true)`)
+**Agent**: Developer (`call_subordinate(profile="autonomous-developer", reset=true)`)
 **Trigger**: User explicit approval
 **Runs**: Fully autonomously — no human intervention expected
 
