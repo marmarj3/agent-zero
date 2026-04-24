@@ -97,7 +97,10 @@ For all stacks:
 
 ## Step 3 — Execute Tasks Incrementally
 
+> **Note on parallel tasks**: The plan may mark some tasks as a parallel group (no interdependency). GitHub Copilot does not support true parallel sub-agent execution — execute parallel-group tasks **sequentially without stopping between them**. Identify the group for documentation purposes, execute each task in order, then proceed to the next phase.
+
 For each task in execution order:
+
 
 1. **ANNOUNCE**: Send Task Start Report
 2. **IMPLEMENT**: Write code/config exactly as specified in spec (FILE-XXX, function signatures, constants)
