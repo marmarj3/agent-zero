@@ -132,7 +132,7 @@ executable by the Developer Agent without interpretation.]
 | TASK-001 | [Exact: what to build, what values, what behavior] | `path/to/file.py` | `[exact command and expected output]` | | |
 | TASK-002 | [Exact description] | `path/to/file.py` | `[verifiable outcome]` | | |
 
-> **Parallel**: TASK-001 and TASK-002 have no interdependency — execute concurrently.
+> **Parallel group**: TASK-001 and TASK-002 have no interdependency — execute concurrently.
 > **Dependency**: TASK-003 requires TASK-001 and TASK-002 complete first.
 
 ### Phase N: Integration & Validation
