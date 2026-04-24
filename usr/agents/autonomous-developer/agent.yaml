@@ -1,4 +1,4 @@
-name: developer
+name: autonomous-developer
 title: Execution Agent
 description: >-
   Implements validated implementation plans autonomously and incrementally.

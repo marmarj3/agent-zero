@@ -18,14 +18,28 @@
 
 Before any implementation task:
 1. Verify runtime environment matches plan's technology stack
-2. Install all DEP-XXX dependencies using the exact commands in the plan
-3. Create directory structure for all FILE-XXX entries
-4. Verify installation: run `[tool] --version` for each dependency
-5. If a dependency fails to install:
-   - Try alternative install method (pip vs pip3, apt vs apt-get, etc.)
+2. **Python projects — always use `uv`**:
+   ```bash
+   # Install uv if not present
+   curl -Lsf https://astral.sh/uv/install.sh | sh
+   # Create virtual environment
+   uv venv .venv
+   # Install dependencies
+   uv pip install -r requirements.txt
+   # Or with pyproject.toml
+   uv sync
+   # Run Python via uv
+   uv run python main.py
+   ```
+   Never use bare `pip` or `python` for Python projects — always `uv pip` and `uv run`.
+3. **Other stacks**: install DEP-XXX dependencies using the exact commands in the plan
+4. Create directory structure for all FILE-XXX entries
+5. Verify installation: run `[tool] --version` for each dependency
+6. If a dependency fails to install:
+   - **Search before guessing**: use web search to find the correct install method or known issues
+   - Try alternative install method (`uv pip` vs `pip`, `apt` vs `apt-get`, etc.)
    - Try compatible version if pinned version unavailable
    - Document as DEV-XXX if resolved, escalate only if critical dep is completely unavailable
-
 ---
 
 ### Step 3: Task Execution Loop
@@ -38,8 +52,14 @@ For each task in execution order:
                - Use exact file paths from FILE-XXX entries
                - Use exact function/class/variable names from the task
                - Use exact config values, env vars, and constants from the plan
-3. VERIFY      Run the acceptance criterion command from the plan
-4. EVALUATE    Did it pass?
+3. TEST        Write and run tests for the implemented component:
+               - Write unit tests covering the acceptance criteria
+               - Tests must be real assertions — no stubs, no `pass`, no skipped assertions
+               - Python: use `uv run pytest` to execute tests
+               - Node: use `npm test` or the test command from the plan
+               - Tests must pass before moving to VERIFY step
+4. VERIFY      Run the acceptance criterion command from the plan
+5. EVALUATE    Did it pass?
                → YES: Send Task Completion Report. Move to next task.
                → NO:  Enter Self-Healing Loop (see below)
 ```
@@ -50,6 +70,7 @@ When a task fails its acceptance criterion:
 
 **Attempt 1 — SOLVE IT**
 - Diagnose the exact error
+- **Use web search** if the error is unclear: `"[error message] [technology] fix"`, `"[library] [version] [error] solution"`
 - Apply fix using engineering knowledge (syntax errors, import issues,
   config mistakes, missing env vars, port conflicts, etc.)
 - Re-run acceptance criterion
@@ -57,6 +78,7 @@ When a task fails its acceptance criterion:
 - If fail: proceed to Attempt 2
 
 **Attempt 2 — ADAPT IT**
+- **Use web search** to find alternative approaches: `"[goal] alternative to [failed approach] 2025"`
 - Find an equivalent approach that satisfies the same REQ-XXX
 - The adaptation must: achieve the same functional outcome, not change
   the interface contract, not break dependent tasks
@@ -111,6 +133,25 @@ After all phases complete:
 5. Record all failures as DEV-XXX entries
 
 ---
+
+### Step 5b: Functional Verification
+
+After integration tests pass, verify the solution works end-to-end as a real user/system would use it:
+
+| Solution type | What to do |
+|---|---|
+| Python/Node web app | `uv run python main.py` or `node index.js` — start it, hit an endpoint, verify real response |
+| CLI tool | Execute with real sample inputs, verify outputs match expected values |
+| Library/package | Write a short consumer script, import and call the main API, verify output |
+| Compiled code | Build it, run the binary with sample args, verify exit code 0 and expected output |
+| Infrastructure/config | Apply/deploy it, query the resulting resources to confirm they exist |
+| Data pipeline | Run with real or sample data end-to-end, inspect output |
+
+**If functional verification fails:**
+- Apply the Self-Healing Loop before proceeding to Step 6
+- Do NOT mark overall status as complete until functional verification passes
+- Document failure and resolution as DEV-XXX
+
 
 ### Step 6: Plan File Update
 
