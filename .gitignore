@@ -43,6 +43,8 @@ usr/plugins/**
 usr/projects/**
 usr/scheduler/**
 usr/workdir/**
+!usr/workdir/github-copilot-agents/
+!usr/workdir/github-copilot-agents/**
 # But keep .gitkeep files
 !usr/**/.gitkeep
 
